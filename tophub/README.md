@@ -1,7 +1,7 @@
 # tophub
 
-Tophub exposes GitHub's fastest-growing public repositories for a recent time
-window.
+Tophub is a remote MCP server that exposes GitHub's fastest-growing public
+repositories for a recent time window.
 
 ## Local MCP server
 
@@ -19,13 +19,13 @@ uv run python client.py --demo
 
 ## Cloudflare Worker
 
-The deployable Cloudflare surface is an HTTP Worker in `src/index.js`.
+The deployable Cloudflare surface is a Python Worker MCP server in
+`src/worker.py`. It runs the FastMCP app behind a Durable Object and exposes the
+server over MCP's SSE transport.
 
-Endpoints:
+Remote MCP endpoint:
 
-- `GET /health`
-- `GET /tops?days=7&limit=5`
-- `GET /tops?days=7&limit=5&format=text`
+- `/sse`
 
 Validate locally:
 
@@ -50,3 +50,6 @@ Wrangler must be authenticated before deployment:
 ```sh
 npx wrangler login
 ```
+
+This follows Cloudflare's Python Workers MCP pattern, so deployment may require
+a Workers Paid plan if the packaged Python Worker exceeds the free size limit.
