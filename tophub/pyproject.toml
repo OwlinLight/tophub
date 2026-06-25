@@ -1,10 +1,21 @@
 [project]
 name = "tophub"
 version = "0.1.0"
-description = "Add your description here"
+description = "Remote MCP server for top GitHub repositories"
 readme = "README.md"
-requires-python = ">=3.10"
+requires-python = "==3.12.*"
 dependencies = [
     "httpx>=0.28.1",
-    "mcp[cli]>=1.28.0",
+    "mcp",
+    "starlette>=0.37.0",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "workers-py>=0.0.10",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]

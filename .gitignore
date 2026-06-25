@@ -7,3 +7,8 @@ node_modules/
 dist/
 coverage/
 *.log
+tophub/src/vendor/
+tophub/.venv-workers/
+tophub/.pytest_cache/
+tophub/python_modules/
+tophub/pylock.toml

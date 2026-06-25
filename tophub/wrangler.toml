@@ -1,3 +1,20 @@
 name = "tophub"
-main = "src/index.js"
+main = "src/worker.py"
 compatibility_date = "2026-06-25"
+compatibility_flags = ["python_workers"]
+
+[[rules]]
+globs = ["vendor/**"]
+type = "Data"
+fallthrough = true
+
+[[durable_objects.bindings]]
+name = "TOPHUB_MCP"
+class_name = "TopHubMCPServer"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["TopHubMCPServer"]
+
+[observability]
+enabled = true

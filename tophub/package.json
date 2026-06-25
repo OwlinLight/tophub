@@ -4,11 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test",
-    "deploy": "wrangler deploy",
-    "dev": "wrangler dev"
+    "test": "uv run pytest tests",
+    "deploy": "uv run pywrangler deploy",
+    "dev": "uv run pywrangler dev"
   },
   "devDependencies": {
-    "wrangler": "^4.0.0"
+    "wrangler": "^4.100.0"
   }
 }
